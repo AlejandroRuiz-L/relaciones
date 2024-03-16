@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>Articulos del reportero {{ repo1.first_name }}{{ repo1.last_name }}:</p>
+  <ul>
+    {% for article in query1 %}
+    <li>Articulo: {{ article.headline }}</li>
+    {% endfor %}
+  </ul>
+  <p>Articulos del reportero {{ repo2.first_name }}{{ repo2.last_name }}</p>
+  <ul>
+    {% for article in query2 %}
+    <li>Articulo: {{ article.headline }}</li>
+    {% endfor %}
+  </ul>
+</body>
+
+</html>
