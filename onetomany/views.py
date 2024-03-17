@@ -26,3 +26,13 @@ def consultas(request):
   query2 = repo2.article_set.all()
 
   return render(request, 'consultas.html', {'repo1':repo1, 'query1':query1, 'repo2':repo2, 'query2':query2})
+
+def modify(request, new, id):
+  report = Reporter.objects.get(id = id)
+  report.first_name = new
+  return HttpResponse("Modificado")
+
+def delete(request, id):
+  report = Reporter.objects.get(id = id)
+  report.delete()
+  return HttpResponse('Eliminado')

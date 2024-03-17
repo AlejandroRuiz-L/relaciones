@@ -12,3 +12,20 @@ def create(request):
 
   print(restaurant.place.address)
   return render(request, 'onetoone.html', {})
+
+def consult(request, id):
+  place = Place.objects.get(id=id)
+  print(place)
+  return HttpResponse(f'Nombre: {place.name}Lugar: {place.address} ')
+
+def modify(request, new, id):
+  place = Place.objects.get(id=id)
+  place.address = new
+  place.save()
+
+  return HttpResponse('Modificado')
+
+def delete(request, id):
+  place = Place.objects.get(id=id)
+  place.delete()
+  return HttpResponse("Eliminado")

@@ -23,5 +23,17 @@ def create(request):
 
   return render(request, 'manytomany.html', {})
 
-def modify(request):
+def consult(request, id):
+  public = Publication.objects.get(id=id)
+  return HttpResponse(f'Publicacion: {public}')
+
+def modify(request, new, id):
+  public = Publication.objects.get(id=id)
+  public.title = new
+
   return render(request, 'modify.html')
+
+def delete(request, id):
+  public = Publication.objects.aget(id=id)
+  public.delete()
+  return HttpResponse("Eliminado")
